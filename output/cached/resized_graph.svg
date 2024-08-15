@@ -1,0 +1,187 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24684px" height="11435px" viewBox="0.00 0.00 2240.00 537.00">
+  <g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 533)">
+    <title>G</title>
+    <polygon fill="white" stroke="none" points="-4,4 -4,-533 2236,-533 2236,4 -4,4"/>
+    <!-- A -->
+    <g id="node1" class="node">
+      <title>A</title>
+      <polygon fill="none" stroke="none" points="152,-280 0,-280 0,-166 152,-166 152,-280"/>
+      <image xlink:href="/home/devinda_121260/Videos/examples/pythonProjectGraph/input/example.svg" width="152px" height="114px" preserveAspectRatio="xMinYMin meet" x="0" y="-280"/>
+    </g>
+    <!-- B -->
+    <g id="node2" class="node">
+      <title>B</title>
+      <polygon fill="none" stroke="none" points="412,-373 260,-373 260,-259 412,-259 412,-373"/>
+      <image xlink:href="/home/devinda_121260/Videos/examples/pythonProjectGraph/input/example.svg" width="152px" height="114px" preserveAspectRatio="xMinYMin meet" x="260" y="-373"/>
+    </g>
+    <!-- A&#45;&gt;B -->
+    <g id="edge1" class="edge">
+      <title>A-&gt;B</title>
+      <path fill="none" stroke="black" d="M152.25,-269.5C152.25,-269.5 248.75,-269.5 248.75,-269.5"/>
+      <polygon fill="black" stroke="black" points="248.75,-273 258.75,-269.5 248.75,-266 248.75,-273"/>
+    </g>
+    <!-- C -->
+    <g id="node3" class="node">
+      <title>C</title>
+      <polygon fill="none" stroke="none" points="412,-187 260,-187 260,-73 412,-73 412,-187"/>
+      <image xlink:href="/home/devinda_121260/Videos/examples/pythonProjectGraph/input/example.svg" width="152px" height="114px" preserveAspectRatio="xMinYMin meet" x="260" y="-187"/>
+    </g>
+    <!-- A&#45;&gt;C -->
+    <g id="edge2" class="edge">
+      <title>A-&gt;C</title>
+      <path fill="none" stroke="black" d="M152.25,-176.5C152.25,-176.5 248.75,-176.5 248.75,-176.5"/>
+      <polygon fill="black" stroke="black" points="248.75,-180 258.75,-176.5 248.75,-173 248.75,-180"/>
+    </g>
+    <!-- D -->
+    <g id="node4" class="node">
+      <title>D</title>
+      <polygon fill="none" stroke="none" points="672,-280 520,-280 520,-166 672,-166 672,-280"/>
+      <image xlink:href="/home/devinda_121260/Videos/examples/pythonProjectGraph/input/example.svg" width="152px" height="114px" preserveAspectRatio="xMinYMin meet" x="520" y="-280"/>
+    </g>
+    <!-- B&#45;&gt;D -->
+    <g id="edge3" class="edge">
+      <title>B-&gt;D</title>
+      <path fill="none" stroke="black" d="M412.25,-269.5C412.25,-269.5 508.75,-269.5 508.75,-269.5"/>
+      <polygon fill="black" stroke="black" points="508.75,-273 518.75,-269.5 508.75,-266 508.75,-273"/>
+    </g>
+    <!-- E -->
+    <g id="node5" class="node">
+      <title>E</title>
+      <polygon fill="none" stroke="none" points="932,-446 780,-446 780,-332 932,-332 932,-446"/>
+      <image xlink:href="/home/devinda_121260/Videos/examples/pythonProjectGraph/input/example.svg" width="152px" height="114px" preserveAspectRatio="xMinYMin meet" x="780" y="-446"/>
+    </g>
+    <!-- B&#45;&gt;E -->
+    <g id="edge15" class="edge">
+      <title>B-&gt;E</title>
+      <path fill="none" stroke="black" d="M412.45,-352.5C412.45,-352.5 768.72,-352.5 768.72,-352.5"/>
+      <polygon fill="black" stroke="black" points="768.72,-356 778.72,-352.5 768.72,-349 768.72,-356"/>
+    </g>
+    <!-- C&#45;&gt;D -->
+    <g id="edge4" class="edge">
+      <title>C-&gt;D</title>
+      <path fill="none" stroke="black" d="M412.25,-176.5C412.25,-176.5 508.75,-176.5 508.75,-176.5"/>
+      <polygon fill="black" stroke="black" points="508.75,-180 518.75,-176.5 508.75,-173 508.75,-180"/>
+    </g>
+    <!-- F -->
+    <g id="node6" class="node">
+      <title>F</title>
+      <polygon fill="none" stroke="none" points="932,-114 780,-114 780,0 932,0 932,-114"/>
+      <image xlink:href="/home/devinda_121260/Videos/examples/pythonProjectGraph/input/example.svg" width="152px" height="114px" preserveAspectRatio="xMinYMin meet" x="780" y="-114"/>
+    </g>
+    <!-- C&#45;&gt;F -->
+    <g id="edge16" class="edge">
+      <title>C-&gt;F</title>
+      <path fill="none" stroke="black" d="M412.45,-93.5C412.45,-93.5 768.72,-93.5 768.72,-93.5"/>
+      <polygon fill="black" stroke="black" points="768.72,-97 778.72,-93.5 768.72,-90 768.72,-97"/>
+    </g>
+    <!-- D&#45;&gt;E -->
+    <g id="edge5" class="edge">
+      <title>D-&gt;E</title>
+      <path fill="none" stroke="black" d="M672.27,-269.67C756.99,-269.67 882,-269.67 882,-269.67 882,-269.67 882,-320.78 882,-320.78"/>
+      <polygon fill="black" stroke="black" points="878.5,-320.78 882,-330.78 885.5,-320.78 878.5,-320.78"/>
+    </g>
+    <!-- D&#45;&gt;F -->
+    <g id="edge6" class="edge">
+      <title>D-&gt;F</title>
+      <path fill="none" stroke="black" d="M672.3,-181.5C740.92,-181.5 831,-181.5 831,-181.5 831,-181.5 831,-125.15 831,-125.15"/>
+      <polygon fill="black" stroke="black" points="834.5,-125.15 831,-115.15 827.5,-125.15 834.5,-125.15"/>
+    </g>
+    <!-- G -->
+    <g id="node7" class="node">
+      <title>G</title>
+      <polygon fill="none" stroke="none" points="2232,-446 2080,-446 2080,-332 2232,-332 2232,-446"/>
+      <image xlink:href="/home/devinda_121260/Videos/examples/pythonProjectGraph/input/example.svg" width="152px" height="114px" preserveAspectRatio="xMinYMin meet" x="2080" y="-446"/>
+    </g>
+    <!-- E&#45;&gt;G -->
+    <g id="edge7" class="edge">
+      <title>E-&gt;G</title>
+      <path fill="none" stroke="black" d="M932.47,-389C932.47,-389 2068.63,-389 2068.63,-389"/>
+      <polygon fill="black" stroke="black" points="2068.63,-392.5 2078.63,-389 2068.63,-385.5 2068.63,-392.5"/>
+    </g>
+    <!-- H -->
+    <g id="node8" class="node">
+      <title>H</title>
+      <polygon fill="none" stroke="none" points="1192,-529 1040,-529 1040,-415 1192,-415 1192,-529"/>
+      <image xlink:href="/home/devinda_121260/Videos/examples/pythonProjectGraph/input/example.svg" width="152px" height="114px" preserveAspectRatio="xMinYMin meet" x="1040" y="-529"/>
+    </g>
+    <!-- E&#45;&gt;H -->
+    <g id="edge9" class="edge">
+      <title>E-&gt;H</title>
+      <path fill="none" stroke="black" d="M932.25,-430.5C932.25,-430.5 1028.75,-430.5 1028.75,-430.5"/>
+      <polygon fill="black" stroke="black" points="1028.75,-434 1038.75,-430.5 1028.75,-427 1028.75,-434"/>
+    </g>
+    <!-- J -->
+    <g id="node9" class="node">
+      <title>J</title>
+      <polygon fill="none" stroke="none" points="1452,-363 1300,-363 1300,-249 1452,-249 1452,-363"/>
+      <image xlink:href="/home/devinda_121260/Videos/examples/pythonProjectGraph/input/example.svg" width="152px" height="114px" preserveAspectRatio="xMinYMin meet" x="1300" y="-363"/>
+    </g>
+    <!-- E&#45;&gt;J -->
+    <g id="edge17" class="edge">
+      <title>E-&gt;J</title>
+      <path fill="none" stroke="black" d="M932.45,-347.5C932.45,-347.5 1288.72,-347.5 1288.72,-347.5"/>
+      <polygon fill="black" stroke="black" points="1288.72,-351 1298.72,-347.5 1288.72,-344 1288.72,-351"/>
+    </g>
+    <!-- F&#45;&gt;G -->
+    <g id="edge8" class="edge">
+      <title>F-&gt;G</title>
+      <path fill="none" stroke="black" d="M932.47,-41.5C1211.13,-41.5 2156,-41.5 2156,-41.5 2156,-41.5 2156,-320.62 2156,-320.62"/>
+      <polygon fill="black" stroke="black" points="2152.5,-320.62 2156,-330.62 2159.5,-320.62 2152.5,-320.62"/>
+    </g>
+    <!-- H&#45;&gt;G -->
+    <g id="edge18" class="edge">
+      <title>H-&gt;G</title>
+      <path fill="none" stroke="black" d="M1192.47,-435.67C1192.47,-435.67 2068.77,-435.67 2068.77,-435.67"/>
+      <polygon fill="black" stroke="black" points="2068.77,-439.17 2078.77,-435.67 2068.77,-432.17 2068.77,-439.17"/>
+    </g>
+    <!-- H&#45;&gt;J -->
+    <g id="edge10" class="edge">
+      <title>H-&gt;J</title>
+      <path fill="none" stroke="black" d="M1192.25,-425.33C1268.97,-425.33 1376,-425.33 1376,-425.33 1376,-425.33 1376,-374.22 1376,-374.22"/>
+      <polygon fill="black" stroke="black" points="1379.5,-374.22 1376,-364.22 1372.5,-374.22 1379.5,-374.22"/>
+    </g>
+    <!-- K -->
+    <g id="node11" class="node">
+      <title>K</title>
+      <polygon fill="none" stroke="none" points="1712,-363 1560,-363 1560,-249 1712,-249 1712,-363"/>
+      <image xlink:href="/home/devinda_121260/Videos/examples/pythonProjectGraph/input/example.svg" width="152px" height="114px" preserveAspectRatio="xMinYMin meet" x="1560" y="-363"/>
+    </g>
+    <!-- J&#45;&gt;K -->
+    <g id="edge12" class="edge">
+      <title>J-&gt;K</title>
+      <path fill="none" stroke="black" d="M1452.25,-306C1452.25,-306 1548.75,-306 1548.75,-306"/>
+      <polygon fill="black" stroke="black" points="1548.75,-309.5 1558.75,-306 1548.75,-302.5 1548.75,-309.5"/>
+    </g>
+    <!-- I -->
+    <g id="node10" class="node">
+      <title>I</title>
+      <polygon fill="none" stroke="none" points="1192,-197 1040,-197 1040,-83 1192,-83 1192,-197"/>
+      <image xlink:href="/home/devinda_121260/Videos/examples/pythonProjectGraph/input/example.svg" width="152px" height="114px" preserveAspectRatio="xMinYMin meet" x="1040" y="-197"/>
+    </g>
+    <!-- I&#45;&gt;J -->
+    <g id="edge11" class="edge">
+      <title>I-&gt;J</title>
+      <path fill="none" stroke="black" d="M1116,-197.22C1116,-227.85 1116,-259.33 1116,-259.33 1116,-259.33 1288.75,-259.33 1288.75,-259.33"/>
+      <polygon fill="black" stroke="black" points="1288.75,-262.83 1298.75,-259.33 1288.75,-255.83 1288.75,-262.83"/>
+    </g>
+    <!-- L -->
+    <g id="node12" class="node">
+      <title>L</title>
+      <polygon fill="none" stroke="none" points="1972,-363 1820,-363 1820,-249 1972,-249 1972,-363"/>
+      <image xlink:href="/home/devinda_121260/Videos/examples/pythonProjectGraph/input/example.svg" width="152px" height="114px" preserveAspectRatio="xMinYMin meet" x="1820" y="-363"/>
+    </g>
+    <!-- K&#45;&gt;L -->
+    <g id="edge13" class="edge">
+      <title>K-&gt;L</title>
+      <path fill="none" stroke="black" d="M1712.25,-306C1712.25,-306 1808.75,-306 1808.75,-306"/>
+      <polygon fill="black" stroke="black" points="1808.75,-309.5 1818.75,-306 1808.75,-302.5 1808.75,-309.5"/>
+    </g>
+    <!-- L&#45;&gt;G -->
+    <g id="edge14" class="edge">
+      <title>L-&gt;G</title>
+      <path fill="none" stroke="black" d="M1972.25,-347.5C1972.25,-347.5 2068.75,-347.5 2068.75,-347.5"/>
+      <polygon fill="black" stroke="black" points="2068.75,-351 2078.75,-347.5 2068.75,-344 2068.75,-351"/>
+    </g>
+  </g>
+</svg>

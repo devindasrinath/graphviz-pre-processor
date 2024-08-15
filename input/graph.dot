@@ -1,0 +1,32 @@
+digraph G {
+    rankdir=LR;
+    splines=ortho;
+    nodesep=1.0;
+    ranksep=1.5;
+    
+    node [shape=box, color=transparent, label="", image="/home/devinda_121260/Videos/examples/pythonProjectGraph/input/example.svg", imagescale=true];
+    "A" [shape=box, color=transparent, label="", image="/home/devinda_121260/Videos/examples/pythonProjectGraph/input/example1.svg", imagescale=true];
+    "D" [shape=box, color=transparent, label="", image="/home/devinda_121260/Videos/examples/pythonProjectGraph/input/example1.svg", imagescale=true];
+    "K" [shape=box, color=transparent, label="", image="/home/devinda_121260/Videos/examples/pythonProjectGraph/input/example1.svg", imagescale=true];
+    
+    
+    "A" -> "B";
+    "A" -> "C";
+    "B" -> "D";
+    "C" -> "D";
+    "D" -> "E";
+    "D" -> "F";
+    "E" -> "G";
+    "F" -> "G";
+    "E" -> "H";
+    "H" -> "J";
+    "I" -> "J";
+    "J" -> "K";
+    "K" -> "L";
+    "L" -> "G";
+    "B" -> "E";
+    "C" -> "F";
+    "E" -> "J";
+    "H" -> "G";
+    "H" -> "P";
+}
