@@ -7,7 +7,7 @@ import xml.etree.ElementTree as et
 
 class SVGExtractor:
     @staticmethod
-    def extract_coordinates(svg_file):
+    def extract_data(svg_file):
         parser = etree.XMLParser(remove_blank_text=True)
         with open(svg_file, 'rb') as file:
             svg_content = file.read()
@@ -25,23 +25,36 @@ class SVGExtractor:
         }
 
         for elem in root.findall('.//svg:g[@class="node"]', namespaces):
-            node_id = elem.get('id')
-            polygon_elem = elem.find('.//{http://www.w3.org/2000/svg}polygon', namespaces)
-            image_elem = elem.find('.//{http://www.w3.org/2000/svg}image', namespaces)
-            text_elem = elem.find('.//{http://www.w3.org/2000/svg}text', namespaces)
-            if image_elem is not None:
-                x = float(image_elem.get('x'))
-                y = float(image_elem.get('y'))
-                width = image_elem.get('width')
-                height = image_elem.get('height')
-                xlink = image_elem.get('{http://www.w3.org/1999/xlink}href')
-                points = polygon_elem.get('points') if polygon_elem is not None else None
-                nodes[node_id] = {'coordinate': (x, y), 'points': points, 'lengths': (width, height), 'xlink': xlink}
-            else:
-                x = float(text_elem.get('x'))
-                y = float(text_elem.get('y'))
-                points = polygon_elem.get('points') if polygon_elem is not None else None
-                nodes[node_id] = {'coordinate': (x, y), 'points': points}
+            # Extract the title value
+            title_elem = elem.find('.//{http://www.w3.org/2000/svg}title', namespaces)
+            node_title = title_elem.text if title_elem is not None else None
+
+            if node_title:  # Proceed only if title exists
+                polygon_elem = elem.find('.//{http://www.w3.org/2000/svg}polygon', namespaces)
+                image_elem = elem.find('.//{http://www.w3.org/2000/svg}image', namespaces)
+                text_elem = elem.find('.//{http://www.w3.org/2000/svg}text', namespaces)
+
+                if image_elem is not None:
+                    x = float(image_elem.get('x'))
+                    y = float(image_elem.get('y'))
+                    width = image_elem.get('width')
+                    height = image_elem.get('height')
+                    xlink = image_elem.get('{http://www.w3.org/1999/xlink}href')
+                    points = polygon_elem.get('points') if polygon_elem is not None else None
+                    nodes[node_title] = {
+                        'coordinate': (x, y),
+                        'points': points,
+                        'lengths': (width, height),
+                        'xlink': xlink
+                    }
+                else:
+                    x = float(text_elem.get('x'))
+                    y = float(text_elem.get('y'))
+                    points = polygon_elem.get('points') if polygon_elem is not None else None
+                    nodes[node_title] = {
+                        'coordinate': (x, y),
+                        'points': points
+                    }
 
         for elem in root.findall('.//{http://www.w3.org/2000/svg}g[@class="edge"]'):
             path_elem = elem.find('.//{http://www.w3.org/2000/svg}path')
@@ -99,19 +112,31 @@ class SVGExtractor:
         parser = etree.XMLParser(remove_blank_text=True)
         with open(svg_file, 'rb') as file:
             svg_content = file.read()
-        # Parse the SVG content
-        root = et.fromstring(svg_content)
 
-        # Extract the required attributes into a dictionary
+        tree = etree.parse(BytesIO(svg_content), parser)
+        root = tree.getroot()
+
         svg_attributes = {
-            "width": root.get("width"),
-            "height": root.get("height"),
-            "viewBox": root.get("viewBox")
+            'width': root.get('width'),
+            'height': root.get('height'),
+            'viewBox': root.get('viewBox')
         }
 
-        # Extract the "transform" attribute from the first <g> element
-        g_elem = root.find('.//{http://www.w3.org/2000/svg}g[@class="graph"]')
+        namespaces = {
+            'svg': 'http://www.w3.org/2000/svg',
+            'xlink': 'http://www.w3.org/1999/xlink'
+        }
+
+        # Extract the transform attribute from the first <g> tag, if it exists
+        g_elem = root.find('.//{http://www.w3.org/2000/svg}g', namespaces)
         if g_elem is not None:
-            svg_attributes["transform"] = g_elem.get("transform")
+            svg_attributes['transform'] = g_elem.get('transform')
+
+        # Extract the top-level polygon element and return its points
+        polygon_elem = root.find('.//{http://www.w3.org/2000/svg}polygon', namespaces)
+        if polygon_elem is not None:
+            svg_attributes['polygon_points'] = polygon_elem.get('points')
+        else:
+            svg_attributes['polygon_points'] = None
 
         return svg_attributes

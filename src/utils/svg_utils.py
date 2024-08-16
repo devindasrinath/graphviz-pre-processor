@@ -9,15 +9,17 @@ from lxml import etree
 class SVGUtils:
     @staticmethod
     def generate_svg_from_dot_file(dot_file, svg_file):
+        name, extension = svg_file.rsplit('.', 1)
         graph = graphviz.Source.from_file(dot_file)
-        graph.render(filename=svg_file, format='svg', cleanup=True)
+        graph.render(filename=name, format=extension, cleanup=True)
 
     @staticmethod
     def generate_svg_from_dot_content(dot_content, svg_file, dot_file):
+        name, extension = svg_file.rsplit('.', 1)
         # Create a graph from DOT content
         graph = graphviz.Source(dot_content)
         # Render the graph to an SVG file
-        graph.render(filename=svg_file, format='svg', cleanup=True)
+        graph.render(filename=name, format=extension, cleanup=True)
 
         with open(dot_file, 'w') as file:
             file.write(dot_content)
@@ -48,8 +50,8 @@ class SVGUtils:
         print(f"SVG resized and saved to {output_svg}")
 
     @staticmethod
-    def create_json(nodes, edges, polygons, general, save_path):
-        data = {'general': general,
+    def create_json(nodes, edges, polygons, svg_attributes, save_path):
+        data = {'svg_attributes': svg_attributes,
                 'nodes': nodes,
                 'edges': edges,
                 'polygons': polygons}

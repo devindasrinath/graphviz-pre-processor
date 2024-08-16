@@ -1,6 +1,7 @@
 from collections import defaultdict
 from shapely.geometry import LineString, Point
 
+from src.constants.constants import BUMPER_RADIUS
 from src.utils.svg_creator import SVGCreator
 from src.utils.svg_extractor import SVGExtractor
 from src.utils.svg_utils import SVGUtils
@@ -77,7 +78,7 @@ class SVGProcessor:
 
     @staticmethod
     def _create_bumper_path(x, y):
-        return f"{x - 5},{y} S{x},{y + 5},{x + 5},{y}"
+        return f"{x - BUMPER_RADIUS},{y} S{x},{y - BUMPER_RADIUS},{x + BUMPER_RADIUS},{y}"
 
     @staticmethod
     def _create_path_data(line):
@@ -96,12 +97,14 @@ class SVGProcessor:
                 print('no dot file content found. generate from default dot file')
             else:
                 # Generate, resize, and extract SVG data
-                SVGUtils.generate_svg_from_dot_content(input_dot, self._graph_config.svg_file, self._graph_config.dot_file)
+                SVGUtils.generate_svg_from_dot_content(input_dot, self._graph_config.svg_file,
+                                                       self._graph_config.dot_file)
                 print('dot file content found. generate from new dot file')
 
-            SVGUtils.resize_svg(f'{self._graph_config.svg_file}.svg', self._graph_config.output_svg,
-                                self._graph_config.width, self._graph_config.height, self._graph_config.translate)
-            nodes, edges, arrow_heads = SVGExtractor.extract_coordinates(self._graph_config.output_svg)
+            # SVGUtils.resize_svg(f'{self._graph_config.svg_file}.svg', self._graph_config.output_svg,
+            # self._graph_config.width, self._graph_config.height, self._graph_config.translate)
+            nodes, edges, arrow_heads = SVGExtractor.extract_data(self._graph_config.svg_file)
+            svg_attributes = SVGExtractor.extract_svg_attributes(self._graph_config.svg_file)
             lines = SVGProcessor.extract_lines(edges)
             overlaps, lines_without_overlapped = SVGProcessor.find_overlaps(lines)
             overlap_lines = SVGProcessor.add_intersection_to_lines(overlaps)
@@ -134,8 +137,7 @@ class SVGProcessor:
                 print(line)
 
             # Create a new SVG with the final paths
-            svg_creator = SVGCreator(self._graph_config.width, self._graph_config.height, self._graph_config.viewBox,
-                                     self._graph_config.translate)
+            svg_creator = SVGCreator(svg_attributes)
 
             # Add nodes to the new SVG
             for node_id, info in nodes.items():
@@ -160,7 +162,7 @@ class SVGProcessor:
             print('--------------------------------------------------------------------')
             # Create a Json object all the details
             json = SVGUtils.create_json(nodes, all_paths, arrow_heads,
-                                        SVGExtractor.extract_svg_attributes(self._graph_config.final_pretty_svg),
+                                        svg_attributes,
                                         self._graph_config.output_json)
             pass
         except Exception as e:

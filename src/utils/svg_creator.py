@@ -3,32 +3,34 @@ import xml.dom.minidom
 
 
 class SVGCreator:
-    def __init__(self, width, height, view_box,translate):
-        self.width = width
-        self.height = height
-        self.viewBox = view_box
+    def __init__(self, svg_attributes):
+        self.width = svg_attributes['width']
+        self.height = svg_attributes['height']
+        self.viewBox = svg_attributes['viewBox']
+        self.transform = svg_attributes['transform']
+        self.polygon_points = svg_attributes['polygon_points']
         self.svg = et.Element('svg', {
             'xmlns': 'http://www.w3.org/2000/svg',
             'xmlns:xlink': 'http://www.w3.org/1999/xlink',
-            'width': f'{self.width}pt',
-            'height': f'{self.height}pt',
+            'width': f'{self.width}',
+            'height': f'{self.height}',
             'viewBox': self.viewBox
         })
         self.graph = et.SubElement(self.svg, 'g', {
             'id': 'graph0',
             'class': 'graph',
-            'transform': f'scale(1 1) rotate(0) translate({translate[0]} {translate[1]})'
+            'transform': str(self.transform)
         })
         title = et.SubElement(self.graph, 'title')
         title.text = 'G'
         et.SubElement(self.graph, 'polygon', {
             'fill': 'white',
             'stroke': 'none',
-            'points': '-4,4 -4,-11430.5 24679.5,-11430.5 24679.5,4 -4,4'
+            'points': str(self.polygon_points)
         })
 
     def add_node(self, node_id, info):
-        node = et.SubElement(self.graph, 'g', {'id': f'node{node_id}', 'class': 'node'})
+        node = et.SubElement(self.graph, 'g', {'id': f'{node_id}', 'class': 'node'})
         et.SubElement(node, 'polygon', {
             'fill': 'none',
             'stroke': 'none',

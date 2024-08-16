@@ -1,0 +1,1 @@
+BUMPER_RADIUS = 5
