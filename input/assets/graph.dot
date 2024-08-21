@@ -1,0 +1,27 @@
+digraph G {
+    rankdir=LR;
+    splines=ortho;
+    nodesep=1.0;
+    ranksep=1.5;
+
+    node [shape=box, color=transparent, label="", image="https://sftp-release-binaries-migrated.s3.amazonaws.com/sftp/slate/mc_assets/http_error_dispatcher.svg", imagescale=true];
+    "A" [shape=box, color=transparent, label="", image="https://sftp-release-binaries-migrated.s3.amazonaws.com/sftp/slate/mc_assets/retry_detector.svg", imagescale=true];
+    "D" [shape=box, color=transparent, label="", image="https://sftp-release-binaries-migrated.s3.amazonaws.com/sftp/slate/mc_assets/http_error_dispatcher.svg", imagescale=true];
+    "K" [shape=box, color=transparent, label="", image="https://sftp-release-binaries-migrated.s3.amazonaws.com/sftp/slate/mc_assets/jwt_validator.svg", imagescale=true];
+    "H" [shape=box, color=transparent, label="", image="https://sftp-release-binaries-migrated.s3.amazonaws.com/sftp/slate/mc_assets/request_metrics_stage.svg", imagescale=true];
+    "F" [shape=box, color=transparent, label="", image="https://sftp-release-binaries-migrated.s3.amazonaws.com/sftp/slate/mc_assets/request_metrics_stage.svg", imagescale=true];
+    "G" [shape=box, color=transparent, label="", image="https://sftp-release-binaries-migrated.s3.amazonaws.com/sftp/slate/mc_assets/load_balancing_routing_stage.svg", imagescale=true];
+
+
+    "A" -> "B";
+    "A" -> "C";
+    "B" -> "D";
+    "C" -> "D";
+    "D" -> "E";
+    "D" -> "F";
+    "E" -> "G";
+    "F" -> "G";
+    "E" -> "H";
+    "H" -> "J";
+
+}

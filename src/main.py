@@ -9,7 +9,8 @@ from src.server.server import FlaskServer
 from processor.svg_processor import SVGProcessor
 
 # Parameters
-dot_file = './input/graph.dot'
+dot_file = './input/assets/graph.dot'
+input_folder = '/home/devinda_121260/Videos/examples/pythonProjectGraph/input/assets'
 svg_file = 'output/graph.svg'
 output_svg = 'output/resized_graph.svg'
 final_svg = 'output/final_output.svg'
@@ -20,6 +21,7 @@ output_json = 'output/json_output.json'
 # Create an instance of GraphConfig
 graph_config = GraphConfig(
     dot_file=dot_file,
+    input_folder=input_folder,
     svg_file=svg_file,
     output_svg=output_svg,
     final_svg=final_svg,

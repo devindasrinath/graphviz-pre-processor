@@ -93,16 +93,22 @@ class SVGProcessor:
         try:
             if input_dot is None:
                 # Generate, resize, and extract SVG data
-                SVGUtils.generate_svg_from_dot_file(self._graph_config.dot_file, self._graph_config.svg_file)
+                new_dot_file, url_to_local_map = SVGUtils.generate_svg_from_modified_dot_file(
+                    self._graph_config.dot_file, self._graph_config.svg_file, self._graph_config.input_folder)
                 print('no dot file content found. generate from default dot file')
+                SVGUtils.replace_local_paths_with_urls(self._graph_config.svg_file, url_to_local_map)
             else:
                 # Generate, resize, and extract SVG data
-                SVGUtils.generate_svg_from_dot_content(input_dot, self._graph_config.svg_file,
-                                                       self._graph_config.dot_file)
+                new_dot_file, url_to_local_map = SVGUtils.generate_svg_from_modified_dot_content(input_dot,
+                                                                                                 self._graph_config.svg_file,
+                                                                                                 self._graph_config.dot_file,
+                                                                                                 self._graph_config.input_folder)
+                SVGUtils.replace_local_paths_with_urls(self._graph_config.svg_file, url_to_local_map)
                 print('dot file content found. generate from new dot file')
 
             # SVGUtils.resize_svg(f'{self._graph_config.svg_file}.svg', self._graph_config.output_svg,
             # self._graph_config.width, self._graph_config.height, self._graph_config.translate)
+
             nodes, edges, arrow_heads = SVGExtractor.extract_data(self._graph_config.svg_file)
             svg_attributes = SVGExtractor.extract_svg_attributes(self._graph_config.svg_file)
             lines = SVGProcessor.extract_lines(edges)
