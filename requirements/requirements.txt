@@ -3,3 +3,4 @@ graphviz
 lxml
 shapely
 Flask
+flask-cors
