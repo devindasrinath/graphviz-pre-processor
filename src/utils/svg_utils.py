@@ -153,9 +153,10 @@ class SVGUtils:
         print(f"SVG resized and saved to {output_svg}")
 
     @staticmethod
-    def create_json(nodes, edges, polygons, svg_attributes, save_path):
+    def create_json(nodes, edges, polygons, clusters, svg_attributes, save_path):
         data = {'svg_attributes': svg_attributes,
                 'nodes': nodes,
+                'clusters': clusters,
                 'edges': edges,
                 'polygons': polygons}
         json_object = json.dumps(data, indent=4)

@@ -45,6 +45,14 @@ class SVGCreator:
             'y': str(info['coordinate'][1])
         })
 
+    def add_cluster(self, cluster_title, info):
+        cluster = et.SubElement(self.graph, 'g', {'id': f'{cluster_title}', 'class': 'cluster'})
+        et.SubElement(cluster, 'polygon', {
+            'fill': 'none',
+            'stroke': 'black',
+            'points': info['points']
+        })
+
     def add_arrow(self, arrow_id, points):
         node = et.SubElement(self.graph, 'g', {'id': f'arrow{arrow_id}', 'class': 'arrow'})
         et.SubElement(node, 'polygon', {

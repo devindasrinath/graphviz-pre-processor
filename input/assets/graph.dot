@@ -12,6 +12,15 @@ digraph G {
     "F" [shape=box, color=transparent, label="", image="https://sftp-release-binaries-migrated.s3.amazonaws.com/sftp/slate/mc_assets/request_metrics_stage.svg", imagescale=true];
     "G" [shape=box, color=transparent, label="", image="https://sftp-release-binaries-migrated.s3.amazonaws.com/sftp/slate/mc_assets/load_balancing_routing_stage.svg", imagescale=true];
 
+    
+    subgraph cluster_retry {
+        label="Retry Stage";
+        "A";
+        "B";
+        "C";
+        style=dashed;
+    }
+
 
     "A" -> "B";
     "A" -> "C";

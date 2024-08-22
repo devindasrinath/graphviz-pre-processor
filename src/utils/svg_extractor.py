@@ -16,6 +16,7 @@ class SVGExtractor:
         root = tree.getroot()
 
         nodes = {}
+        clusters = {}
         edges = []
         arrow_heads = []
 
@@ -56,6 +57,18 @@ class SVGExtractor:
                         'points': points
                     }
 
+        for elem in root.findall('.//svg:g[@class="cluster"]', namespaces):
+            # Extract the title value
+            title_elem = elem.find('.//{http://www.w3.org/2000/svg}title', namespaces)
+            cluster_title = title_elem.text if title_elem is not None else None
+
+            if cluster_title:  # Proceed only if title exists
+                polygon_elem = elem.find('.//{http://www.w3.org/2000/svg}polygon', namespaces)
+                points = polygon_elem.get('points') if polygon_elem is not None else None
+                clusters[cluster_title] = {
+                    'points': points
+                }
+
         for elem in root.findall('.//{http://www.w3.org/2000/svg}g[@class="edge"]'):
             path_elem = elem.find('.//{http://www.w3.org/2000/svg}path')
             if path_elem is not None:
@@ -67,7 +80,7 @@ class SVGExtractor:
                 poly = poly_elem.get('points')
                 arrow_heads.append(poly)
 
-        return nodes, edges, arrow_heads
+        return nodes, edges, arrow_heads, clusters
 
     @staticmethod
     def _parse_path_d_attribute(d):

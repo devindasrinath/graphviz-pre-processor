@@ -109,7 +109,7 @@ class SVGProcessor:
             # SVGUtils.resize_svg(f'{self._graph_config.svg_file}.svg', self._graph_config.output_svg,
             # self._graph_config.width, self._graph_config.height, self._graph_config.translate)
 
-            nodes, edges, arrow_heads = SVGExtractor.extract_data(self._graph_config.svg_file)
+            nodes, edges, arrow_heads, clusters = SVGExtractor.extract_data(self._graph_config.svg_file)
             svg_attributes = SVGExtractor.extract_svg_attributes(self._graph_config.svg_file)
             lines = SVGProcessor.extract_lines(edges)
             overlaps, lines_without_overlapped = SVGProcessor.find_overlaps(lines)
@@ -120,10 +120,15 @@ class SVGProcessor:
 
             # Print node coordinates and points
             print("Nodes:")
-            for node_id, info in nodes.items():
+            for node_title, info in nodes.items():
                 x, y = info['coordinate']
                 points = info['points']
-                print(f"Node {node_id}: x={x}, y={y}, points={points}")
+                print(f"Node {node_title}: x={x}, y={y}, points={points}")
+
+            print("Clusters:")
+            for cluster_title, info in clusters.items():
+                points = info['points']
+                print(f"Cluster {cluster_title}: points={points}")
 
             # Print edge coordinates and 'd' attributes
             print("\nEdges:")
@@ -146,8 +151,12 @@ class SVGProcessor:
             svg_creator = SVGCreator(svg_attributes)
 
             # Add nodes to the new SVG
-            for node_id, info in nodes.items():
-                svg_creator.add_node(node_id, info)
+            for node_title, info in nodes.items():
+                svg_creator.add_node(node_title, info)
+
+            # Add nodes to the new SVG
+            for cluster_title, info in clusters.items():
+                svg_creator.add_cluster(cluster_title, info)
 
             # Add arrow heads to the new SVG
             for idx, path_data in enumerate(arrow_heads):
@@ -167,7 +176,7 @@ class SVGProcessor:
             # ------------------------------------------------
             print('--------------------------------------------------------------------')
             # Create a Json object all the details
-            json = SVGUtils.create_json(nodes, all_paths, arrow_heads,
+            json = SVGUtils.create_json(nodes, all_paths, arrow_heads, clusters,
                                         svg_attributes,
                                         self._graph_config.output_json)
             pass
