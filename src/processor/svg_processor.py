@@ -128,7 +128,10 @@ class SVGProcessor:
             print("Clusters:")
             for cluster_title, info in clusters.items():
                 points = info['points']
-                print(f"Cluster {cluster_title}: points={points}")
+                x = info['x']
+                y = info['y']
+                text = info['text']
+                print(f"Cluster {cluster_title}: points={points}, x={x}, y={y}, text={text}")
 
             # Print edge coordinates and 'd' attributes
             print("\nEdges:")

@@ -64,9 +64,16 @@ class SVGExtractor:
 
             if cluster_title:  # Proceed only if title exists
                 polygon_elem = elem.find('.//{http://www.w3.org/2000/svg}polygon', namespaces)
+                text_elem = elem.find('.//{http://www.w3.org/2000/svg}text', namespaces)
                 points = polygon_elem.get('points') if polygon_elem is not None else None
+                x = float(text_elem.get('x'))
+                y = float(text_elem.get('y'))
+                text_value = text_elem.text if text_elem is not None else None
                 clusters[cluster_title] = {
-                    'points': points
+                    'points': points,
+                    'x': x,
+                    'y': y,
+                    'text': text_value
                 }
 
         for elem in root.findall('.//{http://www.w3.org/2000/svg}g[@class="edge"]'):
